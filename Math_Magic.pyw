@@ -25,7 +25,7 @@ COR_INPUT_BOX = Cor("light gray")
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 pygame.init()
 
-IMG_MOEDA = carregar_imagem("imagens/moeda.png")
+IMG_MOEDA = carregar_imagem("moeda.png")
 IMG_MOEDA = definir_dimensoes(IMG_MOEDA, ALTURA // 14, ALTURA // 14)
 
 RETANGULO_LADO = retangulo(LARGURA // 3, ALTURA, COR_BRANCO)
@@ -33,7 +33,7 @@ RETANGULO_LADO = retangulo(LARGURA // 3, ALTURA, COR_BRANCO)
 INPUT_BOX = retangulo(LARGURA // 8, ALTURA // 25, COR_INPUT_BOX)
 
 NOME_JOGO_BARRA = "MATH MAGIC"
-IMG_ICONE = carregar_imagem("imagens/icone.png")
+IMG_ICONE = carregar_imagem("icone.png")
 
 tela = criar_tela_base(LARGURA, ALTURA)
 tela=pygame.display.set_mode(SIZE,RESIZABLE)
@@ -47,26 +47,26 @@ Fases = definir_estrutura("Fases", "fundo, resultado, ajuda")
 
 Jogo = definir_estrutura("Jogo", "Fases, moedas, Texto, inicio, fim, Fase")
 
-IMG_INICIO = carregar_imagem("imagens/inicio.png")
-IMG_FIM = carregar_imagem("imagens/fim.png")
+IMG_INICIO = carregar_imagem("inicio.png")
+IMG_FIM = carregar_imagem("fim.png")
 
-IMG_FASE_1= carregar_imagem("imagens/fase1.png")
+IMG_FASE_1= carregar_imagem("fase1.png")
 RESULTADO_FASE_1 = 2
 AJUDA_FASE_1 = "Texto de ajuda da fase 1"
 
-IMG_FASE_2= carregar_imagem("imagens/fase2.png")
+IMG_FASE_2= carregar_imagem("fase2.png")
 RESULTADO_FASE_2 = 8
 AJUDA_FASE_2 = "Texto de ajuda da fase 2"
 
-IMG_FASE_3= carregar_imagem("imagens/fase3.png")
+IMG_FASE_3= carregar_imagem("fase3.png")
 RESULTADO_FASE_3 = 14
 AJUDA_FASE_3 = "Texto de ajuda da fase 3"
 
-IMG_FASE_4= carregar_imagem("imagens/fase4.png")
+IMG_FASE_4= carregar_imagem("fase4.png")
 RESULTADO_FASE_4 = 16
 AJUDA_FASE_4 = "Texto de ajuda da fase 4"
 
-IMG_FASE_5= carregar_imagem("imagens/fase5.png")
+IMG_FASE_5= carregar_imagem("fase5.png")
 RESULTADO_FASE_5 = 27
 AJUDA_FASE_5 = "Texto de ajuda da fase 5"
 
