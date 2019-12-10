@@ -90,18 +90,25 @@ def desenha_texto (t):
         colocar_imagem(img_texto, tela, LARGURA * 0.86, ALTURA // 10)
         img_texto = texto(str(t.Texto), Fonte(TIPO_FONTE, TAMANHO_FONTE), Cor(COR_FONTE))
         colocar_imagem(img_texto, tela, LARGURA * 0.833333333333, ALTURA // 1.5)
+        img_texto = texto("Digite o resultado no campo abaixo", Fonte(TIPO_FONTE, ALTURA // 48), Cor(COR_FONTE))
+        colocar_imagem(img_texto, tela, LARGURA * 0.833333333333, ALTURA // 1.6)
         img_texto = texto("Pressione Enter para verificar o resultado", Fonte(TIPO_FONTE, ALTURA // 39), Cor(COR_FONTE))
-        colocar_imagem(img_texto, tela, LARGURA * 0.833333333333, ALTURA // 1.4)
+        colocar_imagem(img_texto, tela, LARGURA * 0.833333333333, ALTURA // 1.3)
         img_texto = texto("Pressione H para solicitar ajuda", Fonte(TIPO_FONTE, ALTURA // 39), Cor(COR_FONTE))
-        colocar_imagem(img_texto, tela, LARGURA * 0.833333333333, ALTURA // 1.25)
+        colocar_imagem(img_texto, tela, LARGURA * 0.833333333333, ALTURA // 1.18)
     elif(not t.inicio and not t.fim):
         colocar_imagem(IMG_INICIO, tela, LARGURA // 2, ALTURA // 2)
         img_texto = texto("Pressione Enter para inicar o jogo", Fonte(TIPO_FONTE, ALTURA // 30), Cor(COR_FONTE))
         colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA * 0.8)
+        img_texto = texto("Dessenvolvido por Ulisses Genguini e Marcos Eduardo Plank", Fonte(TIPO_FONTE, ALTURA // 45), Cor(COR_FONTE))
+        colocar_imagem(img_texto, tela, LARGURA *0.8, ALTURA * 0.9)
     elif(t.fim):
         colocar_imagem(IMG_FIM, tela, LARGURA // 2, ALTURA // 2)
         img_texto = texto("Prabéns você terminou o jogo", Fonte(TIPO_FONTE, ALTURA // 15), Cor(COR_FONTE), LARGURA //2)
         colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 2)
+        img_texto = texto("Dessenvolvido por Ulisses Genguini e Marcos Eduardo Plank", Fonte(TIPO_FONTE, ALTURA // 45),
+                          Cor(COR_FONTE))
+        colocar_imagem(img_texto, tela, LARGURA * 0.8, ALTURA * 0.9)
 
 '''
 trata_tecla: Texto, tecla -> Texto
