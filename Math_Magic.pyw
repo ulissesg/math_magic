@@ -17,7 +17,6 @@ SIZE = [LARGURA, ALTURA]
 
 TIPO_FONTE = "comicsansms"
 TAMANHO_FONTE = ALTURA // 40
-# FONTE_PADRAO = pygame.font.Font(TIPO_FONTE, TAMANHO_FONTE)
 COR_FONTE = "white"
 
 COR_INPUT_BOX = Cor("light gray")
@@ -34,6 +33,7 @@ INPUT_BOX = retangulo(LARGURA // 6, ALTURA // 18, COR_INPUT_BOX)
 
 NOME_JOGO_BARRA = "MATH MAGIC"
 IMG_ICONE = carregar_imagem("icone.png")
+IMG_ICONE_FIM = definir_dimensoes(IMG_ICONE, ALTURA // 6,ALTURA //6)
 
 tela = criar_tela_base(LARGURA, ALTURA)
 tela=pygame.display.set_mode(SIZE,RESIZABLE)
@@ -172,6 +172,8 @@ def desenha_texto (t):
     elif(t.fim and t.conf_acertou):
         colocar_imagem(IMG_FIM, tela, LARGURA // 2, ALTURA // 2)
         img_texto = texto("Prabéns você terminou o jogo", Fonte(TIPO_FONTE, ALTURA // 15), Cor(COR_FONTE), LARGURA //2)
+
+        colocar_imagem(IMG_ICONE_FIM, tela, LARGURA // 6, ALTURA * 0.9)
 
         colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 2)
         img_texto = texto("Desenvolvido por Ulisses Genguini e Marcos Eduardo Plank", Fonte(TIPO_FONTE, ALTURA // 45),Cor(COR_FONTE), LARGURA // 4.5)
