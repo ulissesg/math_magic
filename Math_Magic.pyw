@@ -27,6 +27,9 @@ pygame.init()
 IMG_MOEDA = carregar_imagem("moeda.png")
 IMG_MOEDA = definir_dimensoes(IMG_MOEDA, ALTURA // 14, ALTURA // 14)
 
+JANELA_INFO = carregar_imagem("janela.png")
+JANELA_INFO = definir_dimensoes(JANELA_INFO, LARGURA // 2, ALTURA // 2)
+
 RETANGULO = retangulo(LARGURA // 2, ALTURA // 2, Cor("black"))
 
 INPUT_BOX = retangulo(LARGURA // 6, ALTURA // 18, COR_INPUT_BOX)
@@ -59,8 +62,8 @@ AJUDA_FASE_1 = "6 x 5 = 30"
 
 IMG_FASE_2= carregar_imagem("fase2.png")
 IMG_FASE_2 = definir_dimensoes(IMG_FASE_2, LARGURA, ALTURA)
-RESULTADO_FASE_2 = 11
-AJUDA_FASE_2 = "É o mesmo que 6 + 5"
+RESULTADO_FASE_2 = 9
+AJUDA_FASE_2 = "É o mesmo que 4 + 5"
 
 IMG_FASE_3= carregar_imagem("fase3.png")
 IMG_FASE_3 = definir_dimensoes(IMG_FASE_3, LARGURA, ALTURA)
@@ -72,11 +75,6 @@ IMG_FASE_4 = definir_dimensoes(IMG_FASE_4, LARGURA, ALTURA)
 RESULTADO_FASE_4 = 1650
 AJUDA_FASE_4 = "É o mesmo que 25 x 66"
 
-IMG_FASE_5= carregar_imagem("fase5.png")
-IMG_FASE_5 = definir_dimensoes(IMG_FASE_5, LARGURA, ALTURA)
-RESULTADO_FASE_5 = 27
-AJUDA_FASE_5 = "Texto de ajuda da fase 5"
-
 IMG_INTERFACE= carregar_imagem("Interface.png")
 IMG_INTERFACE = definir_dimensoes(IMG_INTERFACE, LARGURA, ALTURA)
 
@@ -84,11 +82,10 @@ FASE_1 = Fases(IMG_FASE_1, RESULTADO_FASE_1, AJUDA_FASE_1)
 FASE_2 = Fases(IMG_FASE_2, RESULTADO_FASE_2, AJUDA_FASE_2)
 FASE_3 = Fases(IMG_FASE_3, RESULTADO_FASE_3, AJUDA_FASE_3)
 FASE_4 = Fases(IMG_FASE_4, RESULTADO_FASE_4, AJUDA_FASE_4)
-FASE_5 = Fases(IMG_FASE_5, RESULTADO_FASE_5, AJUDA_FASE_5)
 
-FASES_JOGO = [FASE_1, FASE_2, FASE_3, FASE_4, FASE_5]
+FASES_JOGO = [FASE_1, FASE_2, FASE_3, FASE_4]
 
-JOGO_INICIAL = Jogo(FASES_JOGO[0], 0, "", False, False, 0, False, False, False, False, False, False, False)
+JOGO_INICIAL = Jogo(FASES_JOGO[0], 1, "", False, False, 0, False, False, False, False, False, False, False)
 
 def desenha_texto (t):
     if (t.inicio and not t.fim):
@@ -112,7 +109,7 @@ def desenha_texto (t):
         img_texto = texto("Pressione H para solicitar ajuda", Fonte(TIPO_FONTE, TAMANHO_FONTE), Cor(COR_FONTE))
         colocar_imagem(img_texto, tela, LARGURA * 0.845, ALTURA // 1.18)
         if (t.acertou):
-            colocar_imagem(RETANGULO, tela, LARGURA // 2, ALTURA // 2)
+            colocar_imagem(JANELA_INFO, tela, LARGURA // 2, ALTURA // 2)
 
             img_texto = texto("Parabéns, você acertou !", Fonte(TIPO_FONTE, ALTURA //22), Cor(COR_FONTE), LARGURA // 2.5)
             colocar_imagem(img_texto, tela, LARGURA //2, ALTURA // 2.1)
@@ -121,7 +118,7 @@ def desenha_texto (t):
             colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 1.8)
 
         if (t.errou):
-            colocar_imagem(RETANGULO, tela, LARGURA // 2, ALTURA // 2)
+            colocar_imagem(JANELA_INFO, tela, LARGURA // 2, ALTURA // 2)
 
             img_texto = texto("Você errou, mas não desanime, você pode tentar denovo, ou pedir ajuda !", Fonte(TIPO_FONTE, ALTURA // 22), Cor(COR_FONTE), LARGURA // 2.5)
             colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 2.2)
@@ -130,7 +127,7 @@ def desenha_texto (t):
             colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 1.6)
 
         if(t.conf_ajuda):
-            colocar_imagem(RETANGULO, tela, LARGURA // 2, ALTURA // 2)
+            colocar_imagem(JANELA_INFO, tela, LARGURA // 2, ALTURA // 2)
 
             img_texto = texto("Você realmente quer ajuda ?, isso lhe custará uma moeda !",
                               Fonte(TIPO_FONTE, ALTURA // 22), Cor(COR_FONTE), LARGURA // 2.5)
@@ -140,7 +137,7 @@ def desenha_texto (t):
             colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 1.6)
 
         if(t.ajuda):
-            colocar_imagem(RETANGULO, tela, LARGURA // 2, ALTURA // 2)
+            colocar_imagem(JANELA_INFO, tela, LARGURA // 2, ALTURA // 2)
 
             img_texto = texto(t.Fases.ajuda,
                               Fonte(TIPO_FONTE, ALTURA // 22), Cor(COR_FONTE), LARGURA // 2.5)
@@ -150,7 +147,7 @@ def desenha_texto (t):
                               Cor(COR_FONTE), LARGURA // 2.5)
             colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA // 1.8)
         if(t.nomoeda):
-            colocar_imagem(RETANGULO, tela, LARGURA // 2, ALTURA // 2)
+            colocar_imagem(JANELA_INFO, tela, LARGURA // 2, ALTURA // 2)
 
             img_texto = texto("Você não tem moedas suficiente !",
                               Fonte(TIPO_FONTE, ALTURA // 22), Cor(COR_FONTE), LARGURA // 2.5)
@@ -162,10 +159,10 @@ def desenha_texto (t):
 
     elif(not t.inicio and not t.fim):
         colocar_imagem(IMG_INICIO, tela, LARGURA // 2, ALTURA // 2)
-        img_texto = texto("Pressione Enter para inicar o jogo", Fonte(TIPO_FONTE, TAMANHO_FONTE), Cor(COR_FONTE))
+        img_texto = texto("Pressione Enter para inicar o jogo", Fonte(TIPO_FONTE, ALTURA // 30), Cor(COR_FONTE))
 
         colocar_imagem(img_texto, tela, LARGURA // 2, ALTURA * 0.8)
-        img_texto = texto("Desenvolvido por Ulisses Genguini e Marcos Eduardo Plank", Fonte(TIPO_FONTE, TAMANHO_FONTE), Cor(COR_FONTE), LARGURA // 4.5)
+        img_texto = texto("Desenvolvido por Ulisses Genguini e Marcos Eduardo Plank", Fonte(TIPO_FONTE, ALTURA // 50), Cor(COR_FONTE), LARGURA // 4.5)
 
         colocar_imagem(img_texto, tela, LARGURA *0.83, ALTURA * 0.9)
 
@@ -226,9 +223,9 @@ def trata_tecla_texto(t, tecla):
                             t.conf_ajuda, t.ajuda, t.errou, t.conf_errou, False)
 
             if (t.Texto == str(t.Fases.resultado)):
-                if (t.Fase <= 3):
+                if (t.Fase <= 2):
                     return Jogo(t.Fases, t.moedas, t.Texto, t.inicio, t.fim,t.Fase, True, t.conf_acertou, t.conf_ajuda, t.ajuda, t.errou, t.conf_errou, t.nomoeda)
-                elif(t.Fase == 4):
+                elif(t.Fase == 3):
                     return Jogo(t.Fases,t.moedas, t.Texto, t.inicio, True,t.Fase, True,t.conf_acertou, t.conf_ajuda, t.ajuda, t.errou, t.conf_errou, t.nomoeda)
             return Jogo(t.Fases,t.moedas, t.Texto, t.inicio, t.fim, t.Fase, t.acertou,t.conf_acertou, t.conf_ajuda, t.ajuda, True, t.conf_errou, t.nomoeda)
 
